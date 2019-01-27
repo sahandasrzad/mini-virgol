@@ -1,0 +1,58 @@
+
+
+<% include ./partials/header %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table style="width:80%; margin-left: 100px" class="ui celled table">
+<thead>
+	<tr >
+		<th>username</th>
+		<th>name</th>
+		<th>lastname</th>
+		<th>gender</th>
+		<th>phone</th>
+		<th>delete user!</th>
+	</tr>
+</thead>
+
+
+<tbody>
+
+	<% if (data) { %>
+	<% data.forEach(function(user){ %>
+		<tr>
+			<td><%= user.username %></td>
+			<td><%= user.name %></td>
+			<td><%= user.lastname %></td>
+			<td><%= user.gender %></td>
+			<td><%= user.phone %></td>
+			
+			<td>
+				<div style="float:left">
+											
+					<form method="POST" action="/showusers/delete/<%= user._id %>?_method=DELETE" style="float:right">
+						<input class="large ui teal basic button" type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')" />
+						<input type="hidden" name="_method" value="DELETE" />
+					</form>
+				</div>
+			</td>
+		</tr>
+	<% }) %>
+	<% } %>
+</tbody>
+</table>
+
+<% include ./partials/footer %>

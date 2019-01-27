@@ -1,0 +1,73 @@
+<% include ./partials/header %>
+
+<div class="ui grid">
+    <div class="four wide column"></div>
+    <div class="nine wide column">
+
+
+
+        <table style="width:80%; margin-top: 100px" class="ui very basic collapsing celled table">
+            <thead>
+              <tr>
+              <th>author</th>
+              <th>comment</th>
+              <th>Delete Comment!</th>
+            </tr>
+            </thead>
+    
+            <tbody>
+                    <% if (data) { %>
+                        <% data.forEach(function(comment){ %>
+              <tr>
+                <td>
+                  <h4 class="ui image header">
+                    <img src="" class="ui mini rounded image">
+                    <div class="content">
+                     user
+                      <div class="sub header">  <%= comment.author.username %>
+                    </div>
+                  </div>
+                </h4>
+                </td>
+    
+                <td>
+                        <%= comment.text %>
+                </td>
+    
+                <td>
+                      <div style="float:left">
+                          
+                                <form method="POST" action="/showcomments/delete/<%= comment._id %>?_method=DELETE" style="float:right">
+                                    <input class="large ui teal basic button" type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')" />
+                                    <input type="hidden" name="_method" value="DELETE" />
+                                </form>
+                            </div>
+                </td>
+    
+    
+              </tr>
+              <% }) %>
+              <% } %>
+            </tbody>
+          </table>
+
+
+    </div>
+   <div class="three wide column"></div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include ./partials/footer %>

@@ -1,0 +1,90 @@
+<% include ../partials/header %>
+
+
+
+
+<% if(!currentUser ){ %>
+
+    <div class="ui  main centered text container">
+    <div class="ui mini ordered steps">
+            <div class="completed step">
+              <div class="content">
+                <div class="title">SignUp</div>
+                <div class="description">Enter your Information</div>
+              </div>
+            </div>
+            <div class="content step">
+              <div class="content">
+                <div class="title">Create Post</div>
+                <div class="description">Enter your text image</div>
+              </div>
+            </div>
+            <div class="content step">
+              <div class="content">
+                <div class="title">Enjoy!</div>
+                <div class="description">Virgol Web application</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% } else { %>
+
+        <div class="ui main text container">
+                <div class="ui mini ordered steps">
+                        <div class="content step">
+                          <div class="content">
+                            <div class="title">SignUp</div>
+                            <div class="description">Enter your Information</div>
+                          </div>
+                        </div>
+                        <div class="completed step">
+                          <div class="content">
+                            <div class="title">Create Post</div>
+                            <div class="description">Enter your text image</div>
+                          </div>
+                        </div>
+                        <div class="content step">
+                          <div class="content">
+                            <div class="title">Enjoy!</div>
+                            <div class="description">Virgol Web application</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+        <% }  %>
+
+
+
+<div class="ui main text container">
+    <!-- <div class="ui huge center aligned header">Welcome to the Blog App</div> -->
+    	<div class="ui top attached segment">
+        	<div class="ui divided items">
+            	<% blogsVar.forEach(function(blog){ %>
+                	<div class="item">
+                    	<div class="image">
+                        	<img style="width:120px; height:120px" src="<%= blog.image %>" >
+                    	</div>
+                    	<div class="content">
+                <a class="header" id="hover-color" href= "/blogs/<%= blog._id %>" ><div id="title-font"><%= blog.title %></div></a>
+                         	<div class="meta">
+                             <span>Created: <%= blog.created.toDateString() %></span>
+                         	</div>
+                         	<div class="description">
+                             <p><%- blog.body.substring(0, 10) %>...</p>
+                         	</div>
+                         	<div class="extra">
+                             <a class="ui floated teal button" href="/blogs/<%= blog._id %>">
+                                 Read More
+                             </a>
+                         </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

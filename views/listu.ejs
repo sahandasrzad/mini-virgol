@@ -1,0 +1,49 @@
+<% include ./partials/header %>
+
+<div class="ui grid">
+    <div class="four wide column"></div>
+    <div class="nine wide column">
+
+
+            <div class="ui items">
+                    <% if (data) { %>
+                        <% data.forEach(function(post){ %>
+
+                            <p  class="ui dividing header"> <i style="float:right" class="tag icon"></i></p>
+
+                    <div class="item">
+                      <div class="ui small image">
+                        <img src="<%= post.image %>">
+                      </div>
+                      <div class="middle aligned content">
+                        <div class="header">
+                                <%= post.title %>
+                        </div>
+                        <div class="description">
+                          <p></p>
+                        </div>
+                        <div class="extra">
+                          <div class="ui right floated ">
+                                        <form method="POST" action="/showposts/delete/<%= post._id %>?_method=DELETE" style="float:right">
+                                            <input class="large ui teal basic button" type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')" />
+                                            <input type="hidden" name="_method" value="DELETE" />
+                                        </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <% }) %>
+                    <% } %>
+                    
+                  </div>
+    
+
+
+    </div>
+   <div class="three wide column"></div>
+  </div>
+
+
+
+
+<% include ./partials/footer %>

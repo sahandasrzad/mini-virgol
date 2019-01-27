@@ -1,0 +1,55 @@
+<% include ./partials/header %>
+
+
+
+<div class="ui segment  main text container">
+
+   <a class="ui blue image label">
+        <img src="image/christian.jpg">
+        asghar
+        
+      </a>
+      <a class="ui teal image label">
+        <img src="image/jenny.jpg">
+        mammad
+       
+      </a>
+      <a class="ui yellow image label">
+        <img src="image/christian.jpg">
+        jafar
+        
+      </a>
+
+      <div class="ui horizontal divider">
+          Send
+        </div>
+
+
+<div  class="multer ui form">
+		<form class="lg-form"  enctype="multipart/form-data" action="/api/avatar" method="POST">
+
+             <div style="width:50%;" class="file-upload">
+                    <div class="file-select">
+                      <div class="file-select-button" id="fileName">Choose File</div>
+                      <div class="file-select-name" id="noFile">No file chosen...</div> 
+                      <input type="file" name="upl" id="chooseFile">
+                    </div>
+                  </div>
+			<div class="field user-field" >
+				<div class="col-lg-2" style="float: left;">
+					<input type="submit" value="Save Picture"  class="large ui teal basic button">
+				</div>
+      </div>
+      <div class="field user-field" ></div>
+
+
+		</form>
+
+</div>
+</div>
+
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="/scripts/avatar.js"></script>
+
+<% include ./partials/footer %>
